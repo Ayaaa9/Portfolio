@@ -28,7 +28,7 @@ const About: React.FC = () => {
   const languages = [
     { name: "Arabic", level: "Native" },
     { name: "French", level: "Fluent" },
-    { name: "English", level: "Intermediate" }
+    { name: "English", level: "Advanced" }
   ];
 
   return (

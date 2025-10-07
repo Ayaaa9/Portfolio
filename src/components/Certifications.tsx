@@ -21,13 +21,29 @@ const Certifications: React.FC = () => {
     },
     {
       title: "Introduction to Java and Object-Oriented Programming",
-      issuer: "IBM",
+      issuer: "University of Pennsylvania",
       icon: "☕"
     },
     {
       title: "Software Engineering: Software Design and Project Management",
       issuer: "IBM",
       icon: "🎯"
+    },
+    // 🔹 Nouveaux certificats Coursera ajoutés :
+    {
+      title: "React Basics",
+      issuer: "Meta",
+      icon: "⚛️"
+    },
+    {
+      title: "React Native",
+      issuer: "Meta",
+      icon: "📱"
+    },
+    {
+      title: "Virtual Networks in Azure",
+      issuer: "Whizlabs",
+      icon: "☁️"
     }
   ];
 
@@ -74,7 +90,7 @@ const Certifications: React.FC = () => {
           <h3 className="text-2xl font-bold text-white mb-4">Continuous Learning</h3>
           <p className="text-gray-300 max-w-3xl mx-auto">
             I'm committed to continuous professional development through certifications and training programs.
-            These credentials demonstrate my expertise in databases, containerization, version control, and software engineering best practices.
+            These credentials demonstrate my expertise in full-stack development, cloud computing, and modern frameworks like React, React Native, and containerized environments.
           </p>
         </div>
       </div>
