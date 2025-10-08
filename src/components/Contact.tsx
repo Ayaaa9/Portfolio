@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
 import Section from './Section';
 import Button from './Button';
-import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -45,31 +44,31 @@ const Contact: React.FC = () => {
     }
   ];
 
-  // ✅ Fonction d’envoi d’email via EmailJS
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const result = await emailjs.send(
-        'service_b1o3twd', // 🔹 Ton Service ID (depuis EmailJS)
-        'template_pgd14p5', // 🔹 Ton Template ID
-        {
+      const response = await fetch('https://formspree.io/f/mrbyarzn', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: formData.message,
-        },
-        'D2L6pRz-mjZ2xjQwP' // 🔹 Remplace par ta clé publique EmailJS (Public Key)
-      );
+          message: formData.message
+        })
+      });
 
-      if (result.text === 'OK') {
+      if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error('Email sending failed:', error);
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
