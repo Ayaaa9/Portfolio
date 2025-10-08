@@ -132,7 +132,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* ===== RIGHT SIDE (FORM) ===== */}
         <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
           <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
 
@@ -194,12 +193,12 @@ const Contact: React.FC = () => {
 
             {submitStatus === 'success' && (
               <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg animate-fadeIn">
-                ✅ Thank you for your message! I’ll get back to you soon.
+                Thank you for your message! I’ll get back to you soon.
               </div>
             )}
             {submitStatus === 'error' && (
               <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg animate-fadeIn">
-                ❌ Oops! Something went wrong. Please try again later.
+                Oops! Something went wrong. Please try again later.
               </div>
             )}
           </form>

@@ -148,7 +148,7 @@ const Skills: React.FC = () => {
       skills: [
         "HTML5",
         "CSS3",
-        "Tailwind",
+        "TailwindCSS",
         "React Native",
         "Responsive Web Design",
       ],
