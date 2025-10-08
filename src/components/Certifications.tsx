@@ -29,7 +29,6 @@ const Certifications: React.FC = () => {
       issuer: "IBM",
       icon: "🎯"
     },
-    // 🔹 Nouveaux certificats Coursera ajoutés :
     {
       title: "React Basics",
       issuer: "Meta",

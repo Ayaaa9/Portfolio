@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
 import Section from './Section';
 import Button from './Button';
+import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -44,19 +45,36 @@ const Contact: React.FC = () => {
     }
   ];
 
+  // ✅ Fonction d’envoi d’email via EmailJS
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setIsSubmitting(false);
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      const result = await emailjs.send(
+        'service_b1o3twd', // 🔹 Ton Service ID (depuis EmailJS)
+        'template_pgd14p5', // 🔹 Ton Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        'D2L6pRz-mjZ2xjQwP' // 🔹 Remplace par ta clé publique EmailJS (Public Key)
+      );
 
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 1500);
+      if (result.text === 'OK') {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 4000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,6 +92,7 @@ const Contact: React.FC = () => {
       className="bg-gradient-to-b from-slate-900 to-slate-800"
     >
       <div className="grid lg:grid-cols-2 gap-12">
+        {/* ===== LEFT SIDE ===== */}
         <div>
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-white mb-4">Contact Information</h3>
@@ -114,14 +133,13 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
+        {/* ===== RIGHT SIDE (FORM) ===== */}
         <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
           <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-gray-300 mb-2 font-medium">
-                Name
-              </label>
+              <label htmlFor="name" className="block text-gray-300 mb-2 font-medium">Name</label>
               <input
                 type="text"
                 id="name"
@@ -135,9 +153,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-gray-300 mb-2 font-medium">
-                Email
-              </label>
+              <label htmlFor="email" className="block text-gray-300 mb-2 font-medium">Email</label>
               <input
                 type="email"
                 id="email"
@@ -151,9 +167,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-gray-300 mb-2 font-medium">
-                Message
-              </label>
+              <label htmlFor="message" className="block text-gray-300 mb-2 font-medium">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -166,10 +180,7 @@ const Contact: React.FC = () => {
               />
             </div>
 
-            <Button
-              variant="primary"
-              className="w-full"
-            >
+            <Button variant="primary" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? (
                 'Sending...'
               ) : submitStatus === 'success' ? (
@@ -183,8 +194,13 @@ const Contact: React.FC = () => {
             </Button>
 
             {submitStatus === 'success' && (
-              <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg">
-                Thank you for your message! I'll get back to you soon.
+              <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg animate-fadeIn">
+                ✅ Thank you for your message! I’ll get back to you soon.
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg animate-fadeIn">
+                ❌ Oops! Something went wrong. Please try again later.
               </div>
             )}
           </form>

@@ -17,7 +17,38 @@ const Projects: React.FC = () => {
         "Real-time project reporting",
         "RESTful API architecture"
       ],
+      github: "https://github.com/Ayaaa9/rfc_project_tracker",
       color: "from-cyan-500 to-blue-600"
+    },
+    {
+    title: "Application Web de Gestion d’Entreprise",
+    description:
+      "Interactive business management web app developed for DigiUP to centralize project tracking, service management, and online recruitment with automated email integration.",
+    technologies: ["React.js", "TypeScript", "Node.js", "Zoho API"],
+    category: "Web Apps",
+    features: [
+      "Dynamic homepage with service and project sections",
+      "Online job application and contact forms",
+      "Automated email handling via Zoho API",
+      "Centralized project and recruitment management",
+    ],
+    github:
+      "https://github.com/Ayaaa9/Application-Web-de-Gestion-d-Entreprise",
+    color: "from-blue-500 to-purple-600",
+  },
+  {
+      title: "Stock Management Application",
+      description: "Inventory management system for retail stores with comprehensive stock tracking and reporting.",
+      technologies: ["Django", "Python", "Bootstrap", "SQLite"],
+      category: "Web Apps",
+      features: [
+        "Inventory tracking",
+        "Stock alerts and notifications",
+        "Sales reporting",
+        "Supplier management"
+      ],
+      github: "https://github.com/Ayaaa9/Stock-Management-Application/tree/main",
+      color: "from-green-500 to-teal-600"
     },
     {
       title: "Recruitment Management System",
@@ -30,7 +61,8 @@ const Projects: React.FC = () => {
         "Application workflow automation",
         "Admin dashboard"
       ],
-      color: "from-blue-500 to-purple-600"
+      github: "https://github.com/Ayaaa9/Recruitment-Management-System",
+      color: "from-red-500 to-orange-600"
     },
     {
       title: "Data Warehouse & Power BI Dashboard",
@@ -43,6 +75,7 @@ const Projects: React.FC = () => {
         "Real-time analytics",
         "Custom KPI tracking"
       ],
+      github: "https://www.linkedin.com/posts/aya-ouahi-6b82bb268_pfa-powerbi-datawarehouse-activity-7351221953027837955-fjoF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEGKYSwBpNSby3EehvBR6jq0ivy7aAlKH0U",
       color: "from-purple-500 to-pink-600"
     },
     {
@@ -56,20 +89,8 @@ const Projects: React.FC = () => {
         "Local data persistence",
         "Material Design UI"
       ],
+      github: "https://github.com/Ayaaa9/Application_mobile_shopping/tree/master/Shopping_App",
       color: "from-pink-500 to-red-600"
-    },
-    {
-      title: "Stock Management Application",
-      description: "Inventory management system for retail stores with comprehensive stock tracking and reporting.",
-      technologies: ["Django", "Python", "Bootstrap", "SQLite"],
-      category: "Web Apps",
-      features: [
-        "Inventory tracking",
-        "Stock alerts and notifications",
-        "Sales reporting",
-        "Supplier management"
-      ],
-      color: "from-red-500 to-orange-600"
     },
     {
       title: "Banking Account Management System",
@@ -82,15 +103,18 @@ const Projects: React.FC = () => {
         "Credit operations",
         "Security features"
       ],
+      github: "https://github.com/Ayaaa9/Banking-Account-Management-System",
       color: "from-orange-500 to-yellow-600"
     }
+    
   ];
 
   const filters = ['All', 'Web Apps', 'Data Projects', 'Mobile Apps'];
 
-  const filteredProjects = activeFilter === 'All'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects =
+    activeFilter === 'All'
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
   return (
     <Section
@@ -99,6 +123,7 @@ const Projects: React.FC = () => {
       subtitle="Showcase of my academic and professional work"
       className="bg-gradient-to-b from-slate-800 to-slate-900"
     >
+      {/* Filters */}
       <div className="flex flex-wrap gap-4 justify-center mb-12">
         {filters.map((filter) => (
           <button
@@ -116,6 +141,7 @@ const Projects: React.FC = () => {
         ))}
       </div>
 
+      {/* Project Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project, index) => (
           <div
@@ -126,12 +152,25 @@ const Projects: React.FC = () => {
 
             <div className="p-6">
               <div className="flex items-start justify-between mb-4">
-                <div className={`w-12 h-12 bg-gradient-to-br ${project.color} rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                <div
+                  className={`w-12 h-12 bg-gradient-to-br ${project.color} rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
+                >
                   <Code className="text-white" size={24} />
                 </div>
-                <button className="text-gray-400 hover:text-cyan-400 transition-colors">
-                  <ExternalLink size={20} />
-                </button>
+
+                <div className="flex gap-3">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-cyan-400 transition-colors"
+                      aria-label="View on GitHub"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
               </div>
 
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
@@ -143,10 +182,15 @@ const Projects: React.FC = () => {
               </p>
 
               <div className="mb-4">
-                <h4 className="text-sm font-semibold text-gray-300 mb-2">Key Features:</h4>
+                <h4 className="text-sm font-semibold text-gray-300 mb-2">
+                  Key Features:
+                </h4>
                 <ul className="space-y-1">
                   {project.features.slice(0, 3).map((feature, i) => (
-                    <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                    <li
+                      key={i}
+                      className="text-gray-400 text-sm flex items-start gap-2"
+                    >
                       <span className="text-cyan-400 mt-0.5">▹</span>
                       <span>{feature}</span>
                     </li>
@@ -171,7 +215,9 @@ const Projects: React.FC = () => {
 
       {filteredProjects.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-400 text-lg">No projects found in this category.</p>
+          <p className="text-gray-400 text-lg">
+            No projects found in this category.
+          </p>
         </div>
       )}
     </Section>

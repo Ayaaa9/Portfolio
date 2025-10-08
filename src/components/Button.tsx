@@ -7,6 +7,7 @@ interface ButtonProps {
   className?: string;
   href?: string;
   download?: string;
+  disabled?: boolean; 
 }
 
 const Button: React.FC<ButtonProps> = ({
