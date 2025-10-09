@@ -46,14 +46,22 @@ const About: React.FC = () => {
               Summary
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              I'm a 5th-year Software Engineering student at EMSI Rabat, specializing in Computer Science and Networks.
-              Passionate about software development, Cloud Computing, and Data Intelligence, I'm actively seeking a
-              Final Year Project (PFE) internship starting February 2026.
-            </p>
-            <p className="text-gray-300 leading-relaxed mt-4">
-              My goal is to apply my skills in Data Engineering, Software Development, DevOps, and Artificial Intelligence
-              to contribute to innovative, high-impact projects in Big Data and Data Engineering domains.
-            </p>
+  I’m a passionate Software Engineering student specializing in Computer Science and Networks at EMSI Rabat.
+  My journey is driven by a strong enthusiasm for building innovative digital solutions that combine
+  software development, cloud computing, and data-driven intelligence.
+</p>
+
+<p className="text-gray-300 leading-relaxed mt-4">
+  I enjoy exploring how technology, data, and automation can empower smarter decision-making and
+  improve system efficiency. My core expertise spans areas such as Data Engineering, Full-Stack Development,
+  Artificial Intelligence, and DevOps practices.
+</p>
+
+<p className="text-gray-300 leading-relaxed mt-4">
+  Curious, detail-oriented, and growth-driven, I’m always seeking to expand my knowledge through
+  meaningful projects that merge innovation, technical depth, and real-world impact.
+</p>
+
           </div>
 
           <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">

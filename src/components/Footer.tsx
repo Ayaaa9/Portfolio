@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Linkedin, Github, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -7,35 +7,72 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-slate-900 border-t border-slate-800">
+    <footer className="relative bg-slate-900 border-t border-slate-800 overflow-hidden">
+      {/* Subtle glowing background */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center">
-          <div className="mb-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent mb-2">
-              Aya OUAHI
-            </h3>
-            <p className="text-gray-400">Software Engineering Student | Data & DevOps Enthusiast</p>
+      {/* Main content */}
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-12">
+        <div className="flex flex-col items-center text-center space-y-4">
+          {/* Name & Title */}
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+            Aya OUAHI
+          </h3>
+          <p className="text-gray-400 max-w-xl">
+            Passionate about Software Engineering, Data, and DevOps — crafting intelligent and scalable digital solutions.
+          </p>
+
+          {/* Social icons */}
+          <div className="flex gap-6 mt-4">
+            <a
+              href="https://www.linkedin.com/in/aya-ouahi-6b82bb268/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a
+              href="https://github.com/Ayaaa9"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1"
+            >
+              <Github size={24} />
+            </a>
+            <a
+              href="mailto:ayaouahi99@gmail.com"
+              aria-label="Send Email"
+              className="text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1"
+            >
+              <Mail size={24} />
+            </a>
           </div>
 
-          <div className="border-t border-slate-800 pt-6 mt-6">
-            <p className="text-gray-400 flex items-center justify-center gap-2">
-              © 2025 Aya Ouahi
-            </p>
-          </div>
+          {/* Divider */}
+          <div className="w-full border-t border-slate-800 my-6" />
+
+          {/* Copyright */}
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} <span className="text-cyan-400 font-medium">Aya OUAHI</span>. All rights reserved.
+          </p>
         </div>
       </div>
 
+      {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-110 z-50"
+        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 
+                   rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-2xl 
+                   hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-110 z-50 backdrop-blur-md"
         aria-label="Scroll to top"
       >
-        <ArrowUp size={20} />
+        <ArrowUp size={22} />
       </button>
     </footer>
   );

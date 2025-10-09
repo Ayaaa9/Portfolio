@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle, XCircle } from 'lucide-react';
 import Section from './Section';
 import Button from './Button';
 
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Morocco",
+      value: "Rabat, Morocco",
       href: "#",
       color: "from-purple-500 to-pink-600"
     },
@@ -49,16 +49,10 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/mrbyarzn', { 
+      const response = await fetch('https://formspree.io/f/mrbyarzn', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
 
       if (response.ok) {
@@ -72,7 +66,7 @@ const Contact: React.FC = () => {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 4000);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
 
@@ -87,17 +81,18 @@ const Contact: React.FC = () => {
     <Section
       id="contact"
       title="Get In Touch"
-      subtitle="Let's discuss opportunities and collaborate on exciting projects"
+      subtitle="Let’s connect and collaborate on meaningful projects."
       className="bg-gradient-to-b from-slate-900 to-slate-800"
     >
       <div className="grid lg:grid-cols-2 gap-12">
         {/* ===== LEFT SIDE ===== */}
         <div>
           <div className="mb-8">
-            <h3 className="text-2xl font-bold text-white mb-4">Contact Information</h3>
-            <p className="text-gray-400">
-              I'm currently seeking a Final Year Project (PFE) internship starting February 2026.
-              Feel free to reach out for opportunities in Data Engineering, Software Development, or DevOps roles.
+            <h3 className="text-2xl font-bold text-white mb-4">Let’s Connect</h3>
+            <p className="text-gray-400 leading-relaxed">
+              Whether you want to discuss a potential collaboration, share an idea, or simply say hello — 
+              I’d love to hear from you. I’m passionate about creating digital solutions that combine 
+              software engineering, data, and innovation.
             </p>
           </div>
 
@@ -110,10 +105,14 @@ const Contact: React.FC = () => {
                   href={info.href}
                   target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 bg-slate-800/50 backdrop-blur-sm p-4 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 group"
+                  className="flex items-center gap-4 bg-slate-800/50 backdrop-blur-lg p-4 rounded-xl border border-slate-700 
+                             hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 group"
                 >
-                  <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="text-white" size={20} />
+                  <div
+                    className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-lg flex items-center justify-center 
+                               flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Icon className="text-white" size={22} />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">{info.label}</p>
@@ -125,14 +124,15 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="mt-8 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 backdrop-blur-sm p-6 rounded-xl border border-cyan-500/30">
-            <h4 className="text-lg font-bold text-white mb-2">Availability</h4>
+            <h4 className="text-lg font-bold text-white mb-2">Currently Open For</h4>
             <p className="text-gray-300">
-              Open to PFE internship opportunities starting <span className="text-cyan-400 font-semibold">February 2026</span>
+              Software Development • Data Engineering • Cloud & DevOps Projects
             </p>
           </div>
         </div>
 
-        <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700">
+        {/* ===== RIGHT SIDE (FORM) ===== */}
+        <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 shadow-lg hover:shadow-cyan-500/10 transition-all">
           <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -145,7 +145,8 @@ const Contact: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full px-4 py-3 bg-slate-900/70 border border-slate-700 rounded-lg text-white 
+                           focus:outline-none focus:border-cyan-500 transition-all duration-300"
                 placeholder="Your name"
               />
             </div>
@@ -159,7 +160,8 @@ const Contact: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full px-4 py-3 bg-slate-900/70 border border-slate-700 rounded-lg text-white 
+                           focus:outline-none focus:border-cyan-500 transition-all duration-300"
                 placeholder="your.email@example.com"
               />
             </div>
@@ -173,7 +175,8 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                className="w-full px-4 py-3 bg-slate-900/70 border border-slate-700 rounded-lg text-white 
+                           focus:outline-none focus:border-cyan-500 transition-all duration-300 resize-none"
                 placeholder="Your message..."
               />
             </div>
@@ -182,7 +185,15 @@ const Contact: React.FC = () => {
               {isSubmitting ? (
                 'Sending...'
               ) : submitStatus === 'success' ? (
-                'Message Sent!'
+                <>
+                  <CheckCircle className="inline mr-2 text-green-400" size={20} />
+                  Message Sent!
+                </>
+              ) : submitStatus === 'error' ? (
+                <>
+                  <XCircle className="inline mr-2 text-red-400" size={20} />
+                  Error Sending
+                </>
               ) : (
                 <>
                   <Send className="inline mr-2" size={20} />
@@ -192,13 +203,14 @@ const Contact: React.FC = () => {
             </Button>
 
             {submitStatus === 'success' && (
-              <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg animate-fadeIn">
-                Thank you for your message! I’ll get back to you soon.
+              <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg transition-all duration-500 animate-fadeIn">
+                ✅ Thank you for your message! I’ll get back to you soon.
               </div>
             )}
+
             {submitStatus === 'error' && (
-              <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg animate-fadeIn">
-                Oops! Something went wrong. Please try again later.
+              <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg transition-all duration-500 animate-fadeIn">
+                ❌ Oops! Something went wrong. Please try again later.
               </div>
             )}
           </form>
