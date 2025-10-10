@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, Award } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Award, FileText } from 'lucide-react';
 import Section from './Section';
 
 const Experience: React.FC = () => {
@@ -15,7 +15,8 @@ const Experience: React.FC = () => {
         "Developed analytical dashboards for real-time performance tracking and reporting using Spring Boot and React.js."
       ],
       technologies: ["Spring Boot", "React.js", "PostgreSQL", "JWT", "Power BI"],
-      color: "from-cyan-500 to-blue-600"
+      color: "from-cyan-500 to-blue-600",
+      attestation: "/docs/rfc_digital_attestation.pdf" 
     },
     {
       title: "Front-End Developer Intern",
@@ -28,7 +29,8 @@ const Experience: React.FC = () => {
         "Enhanced UI design consistency and performance using React.js and modern CSS frameworks."
       ],
       technologies: ["React.js", "Express.js", "Node.js", "Tailwind CSS"],
-      color: "from-blue-500 to-purple-600"
+      color: "from-blue-500 to-purple-600",
+      attestation: "/docs/digiup_2024.pdf"
     },
     {
       title: "Full-Stack Developer Intern",
@@ -40,7 +42,8 @@ const Experience: React.FC = () => {
         "Implemented candidate tracking, application workflows, and automated data management using Laravel and MySQL."
       ],
       technologies: ["Laravel", "PHP", "MySQL", "Bootstrap"],
-      color: "from-purple-500 to-pink-600"
+      color: "from-purple-500 to-pink-600",
+      attestation: "/docs/digiup_2023.pdf"
     }
   ];
 
@@ -121,7 +124,7 @@ const Experience: React.FC = () => {
                   </ul>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {exp.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
@@ -131,6 +134,19 @@ const Experience: React.FC = () => {
                       </span>
                     ))}
                   </div>
+
+                  {/* View Attestation button */}
+                  {exp.attestation && (
+                    <a
+                      href={exp.attestation}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-lg border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all duration-300 text-sm font-medium"
+                    >
+                      <FileText size={16} />
+                      View certificate
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
