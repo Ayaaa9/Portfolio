@@ -36,44 +36,44 @@ const About: React.FC = () => {
       id="about"
       title="About Me"
       subtitle="Get to know more about my journey and background"
-      className="bg-slate-900"
+      className="bg-slate-900 light:bg-slate-50"
     >
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
-            <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-              <GraduationCap className="text-cyan-400" size={28} />
+          <div className="bg-slate-800/50 light:bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 light:border-slate-200 hover:border-cyan-500 light:hover:border-cyan-600 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 light:hover:shadow-cyan-400/20 light:shadow-sm">
+            <h3 className="text-2xl font-bold text-white light:text-slate-900 mb-4 flex items-center gap-2">
+              <GraduationCap className="text-cyan-400 light:text-cyan-600" size={28} />
               Summary
             </h3>
-            <p className="text-gray-300 leading-relaxed">
-  I’m a passionate Software Engineering student specializing in Computer Science and Networks at EMSI Rabat.
+            <p className="text-gray-300 light:text-slate-600 leading-relaxed">
+  I'm a passionate Software Engineering student specializing in Computer Science and Networks at EMSI Rabat.
   My journey is driven by a strong enthusiasm for building innovative digital solutions that combine
   software development, cloud computing, and data-driven intelligence.
 </p>
 
-<p className="text-gray-300 leading-relaxed mt-4">
+<p className="text-gray-300 light:text-slate-600 leading-relaxed mt-4">
   I enjoy exploring how technology, data, and automation can empower smarter decision-making and
   improve system efficiency. My core expertise spans areas such as Data Engineering, Full-Stack Development,
   Artificial Intelligence, and DevOps practices.
 </p>
 
-<p className="text-gray-300 leading-relaxed mt-4">
-  Curious, detail-oriented, and growth-driven, I’m always seeking to expand my knowledge through
+<p className="text-gray-300 light:text-slate-600 leading-relaxed mt-4">
+  Curious, detail-oriented, and growth-driven, I'm always seeking to expand my knowledge through
   meaningful projects that merge innovation, technical depth, and real-world impact.
 </p>
 
           </div>
 
-          <div className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-              <Languages className="text-cyan-400" size={28} />
+          <div className="bg-slate-800/50 light:bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 light:border-slate-200 hover:border-cyan-500 light:hover:border-cyan-600 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 light:hover:shadow-cyan-400/20 light:shadow-sm">
+            <h3 className="text-2xl font-bold text-white light:text-slate-900 mb-6 flex items-center gap-2">
+              <Languages className="text-cyan-400 light:text-cyan-600" size={28} />
               Languages
             </h3>
             <div className="space-y-4">
               {languages.map((lang, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-gray-300 font-medium">{lang.name}</span>
-                  <span className="text-cyan-400 bg-cyan-500/10 px-4 py-1 rounded-full text-sm">
+                  <span className="text-gray-300 light:text-slate-700 font-medium">{lang.name}</span>
+                  <span className="text-cyan-400 light:text-cyan-600 bg-cyan-500/10 light:bg-cyan-100 px-4 py-1 rounded-full text-sm">
                     {lang.level}
                   </span>
                 </div>
@@ -83,33 +83,33 @@ const About: React.FC = () => {
         </div>
 
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <Calendar className="text-cyan-400" size={28} />
+          <h3 className="text-2xl font-bold text-white light:text-slate-900 mb-6 flex items-center gap-2">
+            <Calendar className="text-cyan-400 light:text-cyan-600" size={28} />
             Academic Timeline
           </h3>
 
           <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-blue-600"></div>
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-blue-600 light:from-cyan-600 light:to-blue-700"></div>
 
             {education.map((edu, index) => (
               <div
                 key={index}
                 className="relative pl-12 pb-8 group"
               >
-                <div className="absolute left-0 top-1 w-8 h-8 bg-slate-900 border-4 border-cyan-500 rounded-full group-hover:scale-110 transition-transform duration-300"></div>
+                <div className="absolute left-0 top-1 w-8 h-8 bg-slate-900 light:bg-white border-4 border-cyan-500 light:border-cyan-600 rounded-full group-hover:scale-110 transition-transform duration-300"></div>
 
-                <div className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 hover:translate-x-2">
+                <div className="bg-slate-800/50 light:bg-white/80 backdrop-blur-sm p-6 rounded-xl border border-slate-700 light:border-slate-200 hover:border-cyan-500 light:hover:border-cyan-600 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 light:hover:shadow-cyan-400/20 hover:translate-x-2 light:shadow-sm">
                   <div className="flex flex-wrap gap-2 mb-2">
-                    <span className="text-cyan-400 text-sm font-semibold">{edu.period}</span>
+                    <span className="text-cyan-400 light:text-cyan-600 text-sm font-semibold">{edu.period}</span>
                     {edu.year && (
-                      <span className="bg-cyan-500/20 text-cyan-300 px-3 py-0.5 rounded-full text-xs font-medium">
+                      <span className="bg-cyan-500/20 light:bg-cyan-100 text-cyan-300 light:text-cyan-700 px-3 py-0.5 rounded-full text-xs font-medium">
                         {edu.year}
                       </span>
                     )}
                   </div>
-                  <h4 className="text-white font-bold text-lg mb-2">{edu.degree}</h4>
-                  <p className="text-gray-400 mb-2">{edu.school}</p>
-                  <div className="flex items-center gap-1 text-gray-500 text-sm">
+                  <h4 className="text-white light:text-slate-900 font-bold text-lg mb-2">{edu.degree}</h4>
+                  <p className="text-gray-400 light:text-slate-600 mb-2">{edu.school}</p>
+                  <div className="flex items-center gap-1 text-gray-500 light:text-slate-500 text-sm">
                     <MapPin size={14} />
                     <span>{edu.location}</span>
                   </div>

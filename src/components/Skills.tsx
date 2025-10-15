@@ -154,7 +154,7 @@ const Skills: React.FC = () => {
         id="skills"
         title="Technical Skills"
         subtitle="Technologies and tools I work with"
-        className="bg-gradient-to-b from-slate-900 to-slate-800"
+        className="bg-gradient-to-b from-slate-900 to-slate-800 light:from-slate-50 light:to-white"
       >
         {/* === Skill Grid === */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -163,8 +163,8 @@ const Skills: React.FC = () => {
             return (
               <div
                 key={index}
-                className={`group relative bg-slate-800/50 backdrop-blur-md p-6 rounded-2xl border border-slate-700 
-                hover:border-cyan-500/80 transition-all duration-500 hover:shadow-cyan-500/20 hover:shadow-xl 
+                className={`group relative bg-slate-800/50 light:bg-white/80 backdrop-blur-md light:shadow-sm p-6 rounded-2xl border border-slate-700 light:border-slate-200 
+                hover:border-cyan-500 light:hover:border-cyan-600/80 transition-all duration-500 hover:shadow-cyan-500/20 hover:shadow-xl 
                 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -176,14 +176,14 @@ const Skills: React.FC = () => {
                   <Icon className="text-white" size={32} />
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-4">{category.title}</h3>
+                <h3 className="text-xl font-bold text-white light:text-slate-900 mb-4">{category.title}</h3>
 
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1.5 bg-slate-700/40 text-gray-300 rounded-lg text-sm border border-slate-600 
-                      hover:border-cyan-500 hover:text-cyan-400 hover:bg-slate-700 transition-all duration-300 cursor-default"
+                      className="px-3 py-1.5 bg-slate-700/40 light:bg-slate-100 text-gray-300 light:text-slate-700 rounded-lg text-sm border border-slate-600 light:border-slate-300 
+                      hover:border-cyan-500 light:hover:border-cyan-600 hover:text-cyan-400 light:hover:text-cyan-600 hover:bg-slate-700 transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </span>
@@ -195,8 +195,8 @@ const Skills: React.FC = () => {
         </div>
 
         {/* === Summary Metrics === */}
-        <div className="mt-16 bg-slate-800/30 backdrop-blur-md p-8 rounded-2xl border border-slate-700 text-center shadow-lg shadow-cyan-500/10">
-          <h3 className="text-2xl font-bold text-white mb-6">Key Highlights</h3>
+        <div className="mt-16 bg-slate-800/30 light:bg-white/80 backdrop-blur-md light:shadow-sm p-8 rounded-2xl border border-slate-700 light:border-slate-200 text-center shadow-lg shadow-cyan-500/10">
+          <h3 className="text-2xl font-bold text-white light:text-slate-900 mb-6">Key Highlights</h3>
           <div className="grid sm:grid-cols-3 gap-6">
             {[ 
               { value: "6+", label: "Programming Languages" },
@@ -204,10 +204,10 @@ const Skills: React.FC = () => {
               { value: "8+", label: "Database & Cloud Tools" },
             ].map((item, i) => (
               <div key={i} className="group hover:scale-105 transition-transform duration-300">
-                <div className="text-cyan-400 text-4xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+                <div className="text-cyan-400 light:text-cyan-600 text-4xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
                   {item.value}
                 </div>
-                <div className="text-gray-400 text-sm font-medium">
+                <div className="text-gray-400 light:text-slate-600 text-sm font-medium">
                   {item.label}
                 </div>
               </div>

@@ -32,15 +32,15 @@ const Hero: React.FC = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background gradient + floating light orbs */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/30 rounded-full filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/30 rounded-full filter blur-3xl animate-pulse delay-1000" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 light:bg-gradient-to-br light:from-slate-50 light:via-white light:to-slate-100 transition-colors duration-500">
+        <div className="absolute inset-0 opacity-30 light:opacity-20">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/30 light:bg-cyan-400/20 rounded-full filter blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/30 light:bg-blue-500/20 rounded-full filter blur-3xl animate-pulse delay-1000" />
         </div>
       </div>
 
-      {/* Optional star background layers */}
-      <div className="absolute inset-0">
+      {/* Optional star background layers - only in dark mode */}
+      <div className="absolute inset-0 dark:block light:hidden">
         <div className="stars"></div>
         <div className="stars2"></div>
         <div className="stars3"></div>
@@ -51,26 +51,26 @@ const Hero: React.FC = () => {
         {/* Profile image with glow */}
         <div className="mb-8 animate-fadeIn">
           <div className="relative mx-auto w-48 h-48">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-2xl opacity-40 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 blur-2xl opacity-40 light:opacity-20 animate-pulse"></div>
             <img
               src="/profile.jpg"
               alt="Aya OUAHI"
-              className="relative w-48 h-48 rounded-full border-4 border-cyan-500 shadow-2xl shadow-cyan-500/50 object-cover animate-float"
+              className="relative w-48 h-48 rounded-full border-4 border-cyan-500 light:border-cyan-400 shadow-2xl shadow-cyan-500/50 light:shadow-cyan-400/30 object-cover animate-float"
             />
           </div>
         </div>
 
         {/* Typing headline */}
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight min-h-[4rem] md:min-h-[5rem]">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-lg">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white light:text-slate-900 leading-tight min-h-[4rem] md:min-h-[5rem]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 light:from-cyan-600 light:to-blue-700 drop-shadow-lg">
             {typedText}
           </span>
-          <span className="animate-blink text-cyan-300 ml-1">|</span>
+          <span className="animate-blink text-cyan-300 light:text-cyan-600 ml-1">|</span>
         </h1>
 
         {/* Subtext */}
         <p
-          className={`text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto transition-opacity duration-1000 ${
+          className={`text-xl md:text-2xl text-gray-300 light:text-slate-600 mb-10 max-w-3xl mx-auto transition-opacity duration-1000 ${
             isTypingComplete ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="text-gray-400 hover:text-cyan-400 transition-transform duration-300 hover:scale-125 hover:rotate-3"
+            className="text-gray-400 light:text-slate-500 hover:text-cyan-400 light:hover:text-cyan-600 transition-transform duration-300 hover:scale-125 hover:rotate-3"
           >
             <Linkedin size={28} />
           </a>
@@ -123,14 +123,14 @@ const Hero: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="text-gray-400 hover:text-cyan-400 transition-transform duration-300 hover:scale-125 hover:-rotate-3"
+            className="text-gray-400 light:text-slate-500 hover:text-cyan-400 light:hover:text-cyan-600 transition-transform duration-300 hover:scale-125 hover:-rotate-3"
           >
             <Github size={28} />
           </a>
           <a
             href="mailto:ayaouahi99@gmail.com"
             aria-label="Send Email to Aya OUAHI"
-            className="text-gray-400 hover:text-cyan-400 transition-transform duration-300 hover:scale-125"
+            className="text-gray-400 light:text-slate-500 hover:text-cyan-400 light:hover:text-cyan-600 transition-transform duration-300 hover:scale-125"
           >
             <Mail size={28} />
           </a>
@@ -139,8 +139,8 @@ const Hero: React.FC = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-scroll"></div>
+        <div className="w-6 h-10 border-2 border-cyan-400 light:border-cyan-600 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-cyan-400 light:bg-cyan-600 rounded-full mt-2 animate-scroll"></div>
         </div>
       </div>
     </section>

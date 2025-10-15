@@ -174,7 +174,7 @@ const Projects: React.FC = () => {
       id="projects"
       title="Featured Projects"
       subtitle="A selection of my most impactful and innovative work"
-      className="bg-gradient-to-b from-slate-900 to-slate-800"
+      className="bg-gradient-to-b from-slate-900 to-slate-800 light:from-slate-50 light:to-white"
     >
       {/* === Filters === */}
       <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -185,7 +185,7 @@ const Projects: React.FC = () => {
             className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
               activeFilter === filter
                 ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg scale-105'
-                : 'bg-slate-800 text-gray-400 hover:text-white hover:bg-slate-700'
+                : 'bg-slate-800 light:bg-slate-100 text-gray-400 hover:text-white hover:bg-slate-700'
             }`}
           >
             <Filter size={16} />
@@ -201,7 +201,7 @@ const Projects: React.FC = () => {
           return (
             <div
               key={index}
-              className="group bg-slate-900/60 border border-slate-800 hover:border-cyan-500/60 
+              className="group bg-slate-900/60 light:bg-white/80 border border-slate-800 light:border-slate-200 light:shadow-sm hover:border-cyan-500/60 light:hover:border-cyan-600 
                          rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 
                          hover:shadow-xl hover:shadow-cyan-500/10 backdrop-blur-sm"
             >
@@ -212,7 +212,7 @@ const Projects: React.FC = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 light:from-slate-100/90 via-slate-900/40 light:via-slate-100/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
               </div>
 
               {/* === Content === */}
@@ -226,10 +226,10 @@ const Projects: React.FC = () => {
                       <Icon className="text-white" size={22} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-lg font-bold text-white light:text-slate-900 group-hover:text-cyan-400 light:group-hover:text-cyan-600 transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-cyan-400 text-sm font-medium">{project.category}</p>
+                      <p className="text-cyan-400 light:text-cyan-600 text-sm font-medium">{project.category}</p>
                     </div>
                   </div>
                   {project.link && (
@@ -237,7 +237,7 @@ const Projects: React.FC = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-cyan-400 transition-transform hover:scale-125"
+                      className="text-gray-400 light:text-slate-500 hover:text-cyan-400 light:hover:text-cyan-600 transition-transform hover:scale-125"
                     >
                       <ExternalLink size={20} />
                     </a>
@@ -252,8 +252,8 @@ const Projects: React.FC = () => {
                 {/* Features Section */}
                 {project.features && (
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2 flex items-center gap-2">
-                      <Layers size={14} className="text-cyan-400" />
+                    <h4 className="text-sm font-semibold text-gray-300 light:text-slate-700 mb-2 flex items-center gap-2">
+                      <Layers size={14} className="text-cyan-400 light:text-cyan-600" />
                       Key Features
                     </h4>
                     <ul className="space-y-1">
@@ -271,7 +271,7 @@ const Projects: React.FC = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-slate-700/50 text-cyan-400 rounded-lg text-xs font-medium border border-slate-600 hover:border-cyan-500 transition-colors duration-300"
+                        className="px-3 py-1 bg-slate-700/50 light:bg-cyan-100 text-cyan-400 light:text-cyan-700 rounded-lg text-xs font-medium border border-slate-600 light:border-slate-300 hover:border-cyan-500 light:hover:border-cyan-600 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -284,7 +284,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-slate-800/50 text-cyan-400 rounded-lg text-xs font-medium border border-slate-700 hover:border-cyan-500/70 transition-all"
+                      className="px-3 py-1 bg-slate-800 light:bg-slate-100/50 text-cyan-400 light:text-cyan-600 rounded-lg text-xs font-medium border border-slate-700 hover:border-cyan-500/70 transition-all"
                     >
                       {tech}
                     </span>
@@ -301,7 +301,7 @@ const Projects: React.FC = () => {
       {/* Empty state */}
       {filteredProjects.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-400 text-lg">No projects found in this category.</p>
+          <p className="text-gray-400 light:text-slate-600 text-lg">No projects found in this category.</p>
         </div>
       )}
     </Section>

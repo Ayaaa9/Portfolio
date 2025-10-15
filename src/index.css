@@ -11,9 +11,30 @@
     scroll-behavior: smooth;
   }
 
-  .light body {
-    @apply bg-white text-slate-900;
+  .light {
+    @apply bg-light-bg text-light-text-primary transition-colors duration-500;
   }
+
+  section {
+  @apply transition-colors duration-500;
+}
+
+.light section {
+  @apply bg-light-surface text-light-text-primary;
+}
+
+.card {
+  @apply bg-slate-800 text-gray-100 border border-slate-700 transition-colors duration-500;
+}
+
+.light .card {
+  @apply bg-light-surface text-light-text-primary border border-light-border shadow-sm;
+}
+.light body {
+    @apply bg-light-bg text-light-text-primary;
+  }
+
+
 }
 
 @layer utilities {
