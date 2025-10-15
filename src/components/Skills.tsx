@@ -16,7 +16,7 @@ const Skills: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // 🔹 Animation d’apparition progressive au scroll
+  // ✅ Animation d’apparition progressive au scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -56,14 +56,19 @@ const Skills: React.FC = () => {
     },
     {
       icon: Database,
-      title: "Databases & ETL",
+      title: "Databases & Data Systems",
       skills: [
         "PostgreSQL",
         "MySQL",
+        "MariaDB",
         "SQL Server",
         "Oracle",
         "SQLite",
+        "MongoDB (NoSQL)",
         "Talend",
+        "Hadoop",
+        "Hive",
+        "Pig",
       ],
       color: "from-purple-500 to-pink-600",
     },
@@ -81,9 +86,11 @@ const Skills: React.FC = () => {
     },
     {
       icon: Cloud,
-      title: "DevOps & Deployment",
+      title: "Cloud & DevOps",
       skills: [
+        "Microsoft Azure",
         "Docker",
+        "Kubernetes",
         "Git",
         "GitHub",
         "GitLab",
@@ -191,15 +198,12 @@ const Skills: React.FC = () => {
         <div className="mt-16 bg-slate-800/30 backdrop-blur-md p-8 rounded-2xl border border-slate-700 text-center shadow-lg shadow-cyan-500/10">
           <h3 className="text-2xl font-bold text-white mb-6">Key Highlights</h3>
           <div className="grid sm:grid-cols-3 gap-6">
-            {[
+            {[ 
               { value: "6+", label: "Programming Languages" },
               { value: "10+", label: "Frameworks & Libraries" },
-              { value: "5+", label: "Databases & BI Tools" },
+              { value: "8+", label: "Database & Cloud Tools" },
             ].map((item, i) => (
-              <div
-                key={i}
-                className="group hover:scale-105 transition-transform duration-300"
-              >
+              <div key={i} className="group hover:scale-105 transition-transform duration-300">
                 <div className="text-cyan-400 text-4xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
                   {item.value}
                 </div>

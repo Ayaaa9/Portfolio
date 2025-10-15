@@ -4,11 +4,15 @@
 
 @layer base {
   body {
-    @apply bg-slate-900 text-white overflow-x-hidden;
+    @apply bg-slate-900 text-white overflow-x-hidden transition-colors duration-500;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  .light body {
+    @apply bg-white text-slate-900;
   }
 }
 
