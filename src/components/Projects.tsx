@@ -245,28 +245,28 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-900 text-sm mb-3 leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
+                  <p className="text-gray-300 light:text-slate-700 text-sm mb-3 leading-relaxed line-clamp-3">
+                      {project.description}
+                  </p>
 
-                {/* Features Section */}
-                {project.features && (
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-300 light:text-slate-800 mb-2 flex items-center gap-2">
-                      <Layers size={14} className="text-cyan-400 light:text-cyan-600" />
+                 {/* Features Section */}
+                  {project.features && (
+                 <div className="mb-4">
+                <h4 className="text-sm font-semibold text-gray-300 light:text-slate-800 mb-2 flex items-center gap-2">
+                   <Layers size={14} className="text-cyan-400 light:text-cyan-600" />
                       Key Features
-                    </h4>
-                    <ul className="space-y-1">
+                 </h4>
+                  <ul className="space-y-1">
                       {project.features.slice(0, 3).map((feature, i) => (
-                        <li key={i} className="text-gray-900 text-sm flex items-start gap-2">
-                          <span className="text-cyan-400 mt-0.5">▹</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                      <li key={i} className="text-gray-300 light:text-slate-700 text-sm flex items-start gap-2 leading-relaxed">
+                     <span className="text-cyan-400 light:text-cyan-600 mt-0.5">▹</span>
+                     <span>{feature}</span>
+                      </li>
+                    ))}
+                 </ul>
+              </div>
                 )}
-
+                
                 <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span
