@@ -185,7 +185,7 @@ const Projects: React.FC = () => {
             className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
               activeFilter === filter
                 ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg scale-105'
-                : 'bg-slate-800 light:bg-slate-100 text-gray-500 hover:text-slate-700 hover:bg-slate-700'
+                : 'bg-slate-800 light:bg-slate-100 text-gray-500 hover:text-slate-700 hover:bg-slate-100'
             }`}
           >
             <Filter size={16} />
@@ -266,7 +266,7 @@ const Projects: React.FC = () => {
                  </ul>
               </div>
                 )}
-                
+
                 <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span
