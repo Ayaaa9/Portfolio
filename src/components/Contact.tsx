@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle, XCircle } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Send, CheckCircle, XCircle } from 'lucide-react';
 import Section from './Section';
 import Button from './Button';
 
@@ -20,13 +20,6 @@ const Contact: React.FC = () => {
       value: "ayaouahi99@gmail.com",
       href: "mailto:ayaouahi99@gmail.com",
       color: "from-cyan-500 to-blue-600"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+212 771-965569",
-      href: "tel:+212771965569",
-      color: "from-blue-500 to-purple-600"
     },
     {
       icon: MapPin,
